@@ -40,3 +40,10 @@ include("$(MPY_DIR)/extmod/asyncio")
 
 # Boot script
 freeze ("$(OMV_LIB_DIR)/", "_boot.py")
+
+# <PC 20260429> Freeze main program and utility modules for bait dispenser
+## Don't forget to place the model "devil.tflite" in "/openmv/lib/models" to freeze that also
+freeze ("$(OMV_LIB_DIR)/", "main.py")
+freeze ("$(OMV_LIB_DIR)/", "ds1307.py")
+freeze ("$(OMV_LIB_DIR)/", "wl134.py")
+

@@ -4,6 +4,12 @@
     "entries": [
     {
       "type": "tflite",
+      "path": "{TOP}/lib/models/devil.tflite",
+      "alignment": 16,
+      "optimize": "Performance"
+    },
+    {
+      "type": "tflite",
       "path": "{TOP}/lib/models/audio_preprocessor.tflite",
       "alignment": 16,
       "optimize": "Performance"
