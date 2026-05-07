@@ -1,6 +1,6 @@
 # OpenMV Firmware for remote animal microchip scanner (RAMS)
 
-## Prithul Chaturvedi, Andrew S. Flies, Soyeon Caren Han, William M. Connelly
+## Prithul Chaturvedi, William M. Connelly, Soyeon Caren Han,  Andrew S. Flies
 
 This guide covers installing a development environment and building the OpenMV firmware for RAMS. This repo is forked from https://github.com/openmv.
 
