@@ -4,7 +4,7 @@
 
 This guide covers installing a development environment and building the OpenMV firmware for RAMS. This repo is forked from https://github.com/openmv.
 
-Two key things to keep in mind during development:
+Key things to keep in mind during development:
 
 1. Ensure that each bash command runs without errors or warnings.
 2. Ensure that your OpenMV IDE is up to date. Find the latest version [here](https://openmv.io/pages/download?srsltid=AfmBOoqA1WcHYXcm1siVzhMTBT8fiq8zR1BQmfoQOZwbRtzLrbuJTFnK).
