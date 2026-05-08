@@ -13,15 +13,15 @@ Key things to keep in mind during development:
     - If you're using HM01B0 QVGA camera, you must update the `openmc-rams/scripts/libraries/main.py` and change `camera.framesize(csi.VGA)` to `camera.framesize(csi.QVGA)`.
 
 ### Instructions to build firmware
-Windows Subsystem Linux (WSL) Ubuntu-20.04 was used to do everything on my computer itself.
+We use Windows Subsystem Linux (WSL) Ubuntu-20.04 for development. Alternatively, you could use the options discussed [here](https://github.com/openmv/openmv/blob/master/docs/firmware.md).
 
-1. Make a folder to work in. Don't go out of this folder unnecessarily:
+1. Make a folder to work in. Don't go out of this folder unnecessarily
 
 ```bash
 sudo mkdir OPENMVFIRMWARE
 ```
 
-2. Basic things before you get started:
+2. Basic things before you get started
 
 ```bash
 sudo apt-get update
@@ -29,14 +29,14 @@ sudo apt-get upgrade
 sudo apt-get install git build-essential
 ```
 
-3. Deep clone the OpenMV git repo that I have forked. This repo has all the necessary files for RAMS:
+3. Deep clone this repo
 
 ```bash
 git clone --recursive https://github.com/snapchaturvedi/openmv-rams.git
 cd openmv-rams
 ```
 
-Alternatively, you can shallow clone the OpenMV git repo. Avoid this if possible (Kwabena Agyeman suggested):
+Alternatively, you can shallow clone the repo. Avoid this if possible
 
 ```bash
 git clone --depth=1 https://github.com/snapchaturvedi/openmv-rams.git
@@ -61,16 +61,16 @@ make -j$(nproc) TARGET=ARDUINO_PORTENTA_H7     # Builds the OpenMV firmware
 The resulting `firmware.bin` along with other build artifacts will be located in the `build/bin` folder.
 
 
-### Flash firmware to Device:
-1. Connect your ArduinoPro H7 Portenta + Vision Shield (LoRa) via USB. Ensure the device has an SD card (at least 32 GB recommended).
-2. Open the OpenMV IDE.
-3. Go to Tools > Run Bootloader.
-4. Select your custom firmware.bin and follow the prompts to flash the device. Erase internal FAT  file systems and reset [ROMFS](https://openmv.io/blogs/news/romfs-support-is-here?srsltid=AfmBOoqvSMMwU7kR9aTYmZasXN4lhuYp6WmUBPDT4ReHv1igfYjwsyJc).
+### Flash firmware to Device
+1. Connect your ArduinoPro H7 Portenta + Vision Shield (LoRa) via USB. Ensure the device has an SD card (at least 32 GB recommended)
+2. Open the OpenMV IDE
+3. Go to Tools > Run Bootloader
+4. Select your custom firmware.bin and follow the prompts to flash the device. Erase internal FAT  file systems and reset [ROMFS](https://openmv.io/blogs/news/romfs-support-is-here?srsltid=AfmBOoqvSMMwU7kR9aTYmZasXN4lhuYp6WmUBPDT4ReHv1igfYjwsyJc)
 
 You might have to edit ROMFS and add the image classificaiton model `devil.tflite`. Do this after loading custom firmware.
 
 ### Rebuild firmware
-To rebuild firmware, make your changes and run the following lines. Only updated files will change upon rebuild.
+To rebuild firmware, make your changes and run the following lines. Only updated files will change upon rebuild
 
 ```bash
 make -j$(nproc) -C lib/micropython/mpy-cross && make -j$(nproc) TARGET=ARDUINO_PORTENTA_H7
